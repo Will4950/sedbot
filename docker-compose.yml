@@ -1,0 +1,12 @@
+services:
+  carl:
+    build: .
+    volumes:
+      - data:/opt/data
+volumes:
+  data:
+    driver: local
+    driver_opts:
+      type: none
+      device: data
+      o: bind
