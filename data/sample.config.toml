@@ -3,3 +3,4 @@ client-secret =
 meeting-id = 
 password = 
 file = /opt/data/comp.mp4
+loop = 0

@@ -1,4 +1,4 @@
-FROM ubuntu:22.04 AS base
+FROM --platform=linux/amd64 ubuntu:22.04 AS base
 
 #  Install Dependencies
 RUN apt-get update  \
@@ -12,9 +12,8 @@ RUN apt-get update  \
     gstreamer1.0-gtk3 gstreamer1.0-qt5 gstreamer1.0-pulseaudio \
     gstreamer1.0-plugins-base gstreamer1.0-plugins-good gstreamer1.0-tools gstreamer1.0-plugins-bad gstreamer1.0-plugins-ugly  
 
-WORKDIR /opt
-
 FROM base AS deps
+WORKDIR /opt
 
 COPY zoomsdk/*.so /usr/lib/
 RUN ln -s /usr/lib/libmeetingsdk.so /usr/lib/libmeetingsdk.so.1
